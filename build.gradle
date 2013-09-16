@@ -1,0 +1,23 @@
+apply plugin: 'java'
+apply plugin: 'eclipse'
+
+configurations {
+    compile
+}
+
+dependencies {
+    runtime(
+        [group: 'org.springframework', name: 'spring-beans', version: '3.2.2.RELEASE'],
+        [group: 'org.springframework', name: 'spring-jdbc', version: '3.2.2.RELEASE']
+        [group: 'org.springframework', name: 'spring-context', version: '3.2.2.RELEASE']
+        [group: 'org.springframework', name: 'spring-context-support', version: '3.2.2.RELEASE']
+        [group: 'org.springframework', name: 'spring-core', version: '3.2.2.RELEASE']
+        [group: 'org.springframework', name: 'spring-expression', version: '3.2.2.RELEASE']
+        [group: 'org.springframework', name: 'spring-oxm', version: '3.2.2.RELEASE']
+        [group: 'org.springframework', name: 'spring-web', version: '3.2.2.RELEASE']
+    )
+    runtime(
+        [group: 'org.springframework.integration', name: 'spring-integration-core', version: '2.2.3.RELEASE'],
+        [group: 'org.springframework.integration', name: 'spring-integration-stream', version: '2.2.3.RELEASE'],
+	)
+}

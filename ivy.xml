@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ivy-module xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="http://ant.apache.org/ivy/schemas/ivy.xsd"
+    version="2.0">
+ 
+    <info organisation="mattgoldspink" module="gtdtd" revision="1.0.0" status="integration">
+        <license name="Apache 2.0" url="http://www.apache.org/licenses/LICENSE-2.0"></license>
+    </info>
+ 
+    <configurations>
+        <conf name="compile" visibility="public" description="Maven compile dependencies"></conf>
+        <conf name="runtime" visibility="public" extends="compile" description="Runtime dependencies"></conf>
+        <conf name="test" visibility="private" description="Test dependencies"></conf>
+    </configurations>
+     
+    <dependencies>
+        <dependency org="org.springframework" name="spring-beans" rev="3.2.2.RELEASE" conf="compile->default" />
+        <dependency org="org.springframework" name="spring-jdbc" rev="3.2.2.RELEASE" conf="compile->default" />
+        <dependency org="org.springframework" name="spring-context" rev="3.2.2.RELEASE" conf="compile->default" />
+        <dependency org="org.springframework" name="spring-context-support" rev="3.2.2.RELEASE" conf="compile->default" />
+        <dependency org="org.springframework" name="spring-core" rev="3.2.2.RELEASE" conf="compile->default" />
+        <dependency org="org.springframework" name="spring-expression" rev="3.2.2.RELEASE" conf="compile->default" />
+        <dependency org="org.springframework" name="spring-oxm" rev="3.2.2.RELEASE" conf="compile->default" />
+        <dependency org="org.springframework" name="spring-web" rev="3.2.2.RELEASE" conf="compile->default" />
+        <dependency org="org.springframework.integration" name="spring-integration-core" rev="2.2.3.RELEASE" conf="compile->default" />
+        <dependency org="org.springframework.integration" name="spring-integration-stream" rev="2.2.3.RELEASE" conf="compile->default">
+        	<artifact name="spring-integration-stream" type="jar"/>
+        	<artifact name="spring-integration-stream" type="source" ext="jar"/>
+        </dependency> 
+        <dependency org="org.apache.cxf" name="cxf-bundle" rev="2.7.6" conf="compile->default" />
+        <dependency org="org.apache.cxf" name="cxf-rt-transports-http-jetty" rev="2.7.6" conf="compile->default" />
+        <dependency org="com.h2database" name="h2" rev="1.2.137" conf="compile->default" />
+        <dependency org="org.slf4j" name="slf4j-api" rev="1.6.1" conf="compile->default" />
+        <dependency org="org.slf4j" name="slf4j-simple" rev="1.6.1" conf="compile->default" />
+        <dependency org="com.github.javafaker" name="javafaker" rev="0.2" conf="compile->default" />
+        
+	    <dependency org="org.springframework" name="spring-test" rev="3.2.2.RELEASE" conf="test->default" />
+	    <dependency org="junit" name="junit" rev="4.11" conf="test->default" />
+        
+	</dependencies>
+ 
+</ivy-module>

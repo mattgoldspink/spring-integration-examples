@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:int="http://www.springframework.org/schema/integration"
+  xmlns:context="http://www.springframework.org/schema/context"
+  xmlns:int-file="http://www.springframework.org/schema/integration/file"
+  xmlns:int-stream="http://www.springframework.org/schema/integration/stream"
+  xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/context
+	http://www.springframework.org/schema/context/spring-context-2.5.xsd
+    http://www.springframework.org/schema/integration
+    http://www.springframework.org/schema/integration/spring-integration.xsd
+    http://www.springframework.org/schema/integration/file
+    http://www.springframework.org/schema/integration/file/spring-integration-file.xsd
+    http://www.springframework.org/schema/integration/stream
+    http://www.springframework.org/schema/integration/stream/spring-integration-stream.xsd">
+    
+    	<context:annotation-config />
+    
+
+ <int-stream:stdin-channel-adapter id="stdin" channel="directChannel">
+     <int:poller fixed-rate="250"/>
+ </int-stream:stdin-channel-adapter>
+
+ <int-stream:stdout-channel-adapter id="stdout" channel="directChannel"/>
+ 
+ <int:channel id="directChannel"/>
+ 
+ <bean id="bookCatalogue" class="com.amazinbooks.repository.mock.MockBookCatalogueRepository"/>
+ 
+ <bean class="com.amazinbooks.repository.mock.MockCustomerRepository" />
+ 
+ <bean class="com.amazinbooks.repository.mock.MockInventoryRepository">
+ 	<constructor-arg ref="bookCatalogue" />
+ </bean>
+ 
+ <bean class="com.amazinbooks.util.OrderGenerator" />
+ 
+</beans>
